@@ -2,17 +2,23 @@
 import './App.css';
 import Nav from './Nav.js';
 import Main from './Main.js';
-import Section from './Section.js';
+// import Section from './Section.js';
 import Footer from'./Footer.js';
-import Header from './Header.js';
+import Specials from './Specials.js'
+import Testimonials from './Testimonials.js';
+import About from './About.js';
+import SpecialCard from './SpecialCard.js'
+
+// import Header from './Header.js';
 
 function App() {
   return (
     <>
       <Nav />
-      <Header />
-      <Main/>
-      <Section />
+      <Main />
+      <Specials />
+      <Testimonials />
+      <About />
       <Footer />
    </>
   );

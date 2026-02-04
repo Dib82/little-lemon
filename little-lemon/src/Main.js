@@ -2,7 +2,22 @@
 
 function Main() {
   return (
-        <h1>Main</h1>
+        <>
+        <div class="flexH">
+          <main class="header">
+            <div class="nest">
+              <h1 class="displayTitle secondary-yellow">Little Lemon</h1>
+              <p class="subTitle">Chicago</p>
+              <p class="leadText">Little Lemon is a charming neighbourhood bistro
+              that serves simple food and classic cocktails in a lively but casual environment.
+              The restaurant features a locally-sourced menu with daily specials</p>
+              </div>
+              <div class="myimg flexH">
+                <img src="./images/3d3cce7a3104bf255ed0e69195e2a157338c1bff.jpg"></img>
+            </div>
+          </main>
+        </div>
+        </>
   );
 }
 

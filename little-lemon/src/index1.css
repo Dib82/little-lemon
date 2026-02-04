@@ -1,0 +1,129 @@
+
+html {
+  /* overflow: hidden; */
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(255, 255, 255);
+
+  display: grid;
+  height: 150vh;
+  grid-template-rows: auto 1fr auto;
+}
+
+/* Nav bar */
+
+nav > ul {
+  background-color: rgb(38, 210, 253);
+  height: 125px;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  /* justify-content: center; */
+  list-style: none;
+}
+
+ #logo_s {
+   height: 125px;
+ }
+
+ul {
+
+}
+
+a {
+  text-decoration: none;
+}
+
+a {
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style:normal;
+  font-size: 20pt;
+  color: #486648;
+}
+
+a:visited{
+  color: #486648;
+}
+
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+header {
+  background-color: #2c3333;
+   text-align: center;
+   padding: 2em;
+}
+
+main {
+  background-color: rgb(9, 138, 138);
+  text-align: center;
+  padding: 2em;
+}
+
+section {
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 2em;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr 1fr auto;
+  background-color: rgb(9, 138, 138);
+  text-align: center;
+  padding: 2em;
+}
+
+.third {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / 1fr;
+}
+
+footer {
+  color: #486648;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    background-color: rgb(255, 112, 112);
+  }
+
+  nav > ul {
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: row;
+    gap: 1rem;
+    flex-grow: 1;
+    flex-basis: 100%;
+    list-style: none;
+    background-color: rgb(255, 224, 48);
+    height: auto;
+
+  }
+
+  li:first-child {
+    flex-basis: 100%;
+
+  }
+
+  nav {
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 224, 48); ;
+  }
+}
