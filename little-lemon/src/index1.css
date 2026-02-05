@@ -17,6 +17,11 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
+.placeholder {
+  background-color: blueviolet;
+}
+
+
 /* Nav bar */
 
 nav > ul {
@@ -33,10 +38,6 @@ nav > ul {
  #logo_s {
    height: 125px;
  }
-
-ul {
-
-}
 
 a {
   text-decoration: none;

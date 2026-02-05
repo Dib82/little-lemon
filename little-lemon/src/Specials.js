@@ -1,4 +1,6 @@
 
+import { Link } from "react-router-dom";
+
 function Specials(){
     return(
             <div class="specials">
