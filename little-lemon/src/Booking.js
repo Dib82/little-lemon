@@ -1,8 +1,8 @@
 
 function Booking(){
     return (<>
-        <div class="flexH">
-            <h1 class="placeholder">Booking Placeholder</h1>
+        <div className="flexH">
+            <h1 className="placeholder">Booking Placeholder</h1>
         </div>
         </>
     )
