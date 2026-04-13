@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { submitAPI } from "./Api";
 
 
@@ -7,11 +8,17 @@ e.preventDefault();
 console.log("Form submitted")
 
 const formData = {
-    date: props.date
+    date: props.date,
+    selectedTime: props.selectedTime,
+    guests: props.guests,
+    occasion: props.occasion,
+    email: props.email,
+    tel: props.tel,
+    comment: props.comment
 }
+
 props.submitForm(formData)
 console.log(formData)
-
 }
 
 const handleDateChange = (e) => {
@@ -22,16 +29,41 @@ const handleDateChange = (e) => {
 }
 
 
+// Valid Phone Number Check
+const telHandler = (e) => {
+    const value = e.target.value
+    props.setTel(value)
+
+    if (value.trim() === "")
+    {
+        props.setPhoneLabel("Phone Number")
+    }
+    else if (isNaN(value) || (value.length != 10))
+    {
+        props.setPhoneLabel("Not a valid number")
+    }
+    else
+    {
+        props.setPhoneLabel("Phone Number")
+    }
+}
+
+
+
+
+
     return (
                 <>
                     <div className="flexH bookingpage">
                         <form onSubmit={ handleSubmit } style={{display: "grid", maxWidth: "200px", gap: "20px", background: "rgb(211, 211, 211)", padding:"2%", borderRadius: "16px"}}>
                         <label htmlFor="res-date">Choose date</label>
                         <input
+                              required
                               type="date"
                               id="res-date"
                               value={ props.date }
                               onChange={handleDateChange}
+                              min={new Date().toISOString().split("T")[0]}
                         />
 
                         <label htmlFor="res-time">Choose time</label>
@@ -54,9 +86,44 @@ const handleDateChange = (e) => {
                             <option>Birthday</option>
                             <option>Anniversary</option>
                         </select>
+
+                        <label htmlFor="email">E-mail</label>
+                        <input
+                            required
+                            type="email"
+                            placeholder="E-mail"
+                            id="email"
+                            value={props.email}
+                            onChange={ (e) => { props.setEmail(e.target.value) }}
+                        ></input>
+                        <label
+                            htmlFor="tel"
+                                style={{
+                                    color: props.phoneLabel.includes("Not") ? "red" : "black",
+                                    fontWeight: props.phoneLabel.includes("Not") ? "bold" : "normal"
+                                }}
+
+
+                            >{props.phoneLabel}
+                        </label>
+                        <input
+                            required
+                            type="tel"
+                            placeholder="Phone Number"
+                            id="tel"
+                            value={props.tel}
+                            // onChange={ (e) => { setTel(e.target.value) }}
+                            onChange={telHandler}
+                        ></input>
                        <label htmlFor="comment">Comments</label>
-                        <textarea value={ props.comment } onChange={ e => props.setComment (e.target.value)}/>
-                       <input type="submit" value="Make Your reservation" />
+                        <textarea
+                            id="comment"
+                            value={ props.comment }
+                            onChange={ e => props.setComment (e.target.value)}/>
+                       <input
+                            type="submit"
+                            value="Make Your reservation"
+                            disabled={props.phoneLabel !== "Phone Number" || !props.tel || !props.email}/>
                         </form>
                     </div>
                 </>

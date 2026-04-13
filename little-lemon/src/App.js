@@ -11,7 +11,6 @@ import { useState, useReducer } from 'react';
 import { fetchAPI, submitAPI } from "./Api.js";
 import { useNavigate } from 'react-router-dom';
 
-
 // 2 INTIALIZE
 export const initializeTimes = () => {
   return fetchAPI(new Date());
@@ -25,13 +24,30 @@ export const updateTimes = (state, action) => {
   return state;
 };
 
+const getToday = () =>
+  new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+    .toISOString()
+    .split("T")[0];
+
 function App() {
   const [comment, setComment] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(getToday());
   const [guests, setGuests] = useState("");
   const [occasion, setOccasion] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
 
+  const [email, setEmail] = useState("")
+  const [tel, setTel] = useState("")
+  const [phoneLabel, setPhoneLabel] = useState("Phone Number");
+
+    const resetForm = () => {
+      setDate(getToday())
+      setGuests(1)
+      setOccasion([0])
+      setEmail("")
+      setTel("")
+      setComment("")
+    }
 
   // 4 reducer function
   const [availableTimes, dispatch] = useReducer( updateTimes, [], initializeTimes);
@@ -41,6 +57,7 @@ const submitForm = (formData) => {
   const success = submitAPI(formData)
     if (success) {
       navigate("/confirmed")
+      resetForm()
     }
 }
 
@@ -61,6 +78,9 @@ const submitForm = (formData) => {
               availableTimes={availableTimes}
               dispatch={dispatch}
               submitForm={submitForm}
+              email={email} setEmail={setEmail}
+              tel={tel} setTel={setTel}
+              phoneLabel={phoneLabel} setPhoneLabel={setPhoneLabel}
             />
           }
         />
