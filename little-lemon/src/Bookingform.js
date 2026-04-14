@@ -28,6 +28,9 @@ const handleDateChange = (e) => {
   props.setSelectedTime("");
 }
 
+const [phoneLabel, setPhoneLabel] = useState("Phone Number");
+
+
 
 // Valid Phone Number Check
 const telHandler = (e) => {
@@ -36,21 +39,17 @@ const telHandler = (e) => {
 
     if (value.trim() === "")
     {
-        props.setPhoneLabel("Phone Number")
+        setPhoneLabel("Phone Number")
     }
     else if (isNaN(value) || (value.length != 10))
     {
-        props.setPhoneLabel("Not a valid number")
+        setPhoneLabel("Not a valid number")
     }
     else
     {
-        props.setPhoneLabel("Phone Number")
+        setPhoneLabel("Phone Number")
     }
 }
-
-
-
-
 
     return (
                 <>
@@ -99,12 +98,12 @@ const telHandler = (e) => {
                         <label
                             htmlFor="tel"
                                 style={{
-                                    color: props.phoneLabel.includes("Not") ? "red" : "black",
-                                    fontWeight: props.phoneLabel.includes("Not") ? "bold" : "normal"
+                                    color: phoneLabel.includes("Not") ? "red" : "black",
+                                    fontWeight: phoneLabel.includes("Not") ? "bold" : "normal"
                                 }}
 
 
-                            >{props.phoneLabel}
+                            >{phoneLabel}
                         </label>
                         <input
                             required
@@ -123,7 +122,13 @@ const telHandler = (e) => {
                        <input
                             type="submit"
                             value="Make Your reservation"
-                            disabled={props.phoneLabel !== "Phone Number" || !props.tel || !props.email}/>
+                            // disabled={ !flag  || !props.tel || !props.email}
+                            disabled={
+                                isNaN(props.tel) ||
+                                props.tel.length !== 10 ||
+                                !props.email 
+}
+                            />
                         </form>
                     </div>
                 </>

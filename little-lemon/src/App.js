@@ -38,7 +38,7 @@ function App() {
 
   const [email, setEmail] = useState("")
   const [tel, setTel] = useState("")
-  const [phoneLabel, setPhoneLabel] = useState("Phone Number");
+  // const [phoneLabel, setPhoneLabel] = useState("Phone Number");
 
     const resetForm = () => {
       setDate(getToday())
@@ -80,7 +80,7 @@ const submitForm = (formData) => {
               submitForm={submitForm}
               email={email} setEmail={setEmail}
               tel={tel} setTel={setTel}
-              phoneLabel={phoneLabel} setPhoneLabel={setPhoneLabel}
+              // phoneLabel={phoneLabel} setPhoneLabel={setPhoneLabel}
             />
           }
         />
