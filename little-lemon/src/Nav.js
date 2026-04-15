@@ -2,8 +2,8 @@ import { Routes, Route, Link } from 'react-router-dom';
 
 function Nav() {
   return (
-    <>
-      <nav class="parent">
+    <header>
+      <nav class="parent" aria-label="Main Navigation"> 
           <ul className="sectionTitle">
             <li><img src="./images/logo_s.jpg" alt="Liitle Lemon Logo"  id="logo_s"></img></li>
             <li className="sectionTitle"><Link to="/" className="primary-green">Home</Link></li>
@@ -14,7 +14,7 @@ function Nav() {
             <li><Link to="#" className="primary-green">Login</Link></li>
           </ul>
       </nav>
-   </>
+   </header>
   );
 }
 

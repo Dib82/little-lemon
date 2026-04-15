@@ -43,7 +43,7 @@ const telHandler = (e) => {
     }
     else if (isNaN(value) || (value.length != 10))
     {
-        setPhoneLabel("Not a valid number")
+        setPhoneLabel("Invalid. Should be 10 digits 0123456789")
     }
     else
     {
@@ -54,7 +54,7 @@ const telHandler = (e) => {
     return (
                 <>
                     <div className="flexH bookingpage">
-                        <form onSubmit={ handleSubmit } style={{display: "grid", maxWidth: "200px", gap: "20px", background: "rgb(211, 211, 211)", padding:"2%", borderRadius: "16px"}}>
+                        <form onSubmit={ handleSubmit } aria-label="Booking reservation form, date, time, guests, occasion, email, phone number" style={{display: "grid", maxWidth: "200px", gap: "20px", background: "rgb(211, 211, 211)", padding:"2%", borderRadius: "16px"}}>
                         <label htmlFor="res-date">Choose date</label>
                         <input
                               required
@@ -98,8 +98,8 @@ const telHandler = (e) => {
                         <label
                             htmlFor="tel"
                                 style={{
-                                    color: phoneLabel.includes("Not") ? "red" : "black",
-                                    fontWeight: phoneLabel.includes("Not") ? "bold" : "normal"
+                                    color: phoneLabel.includes("Invalid") ? "red" : "black",
+                                    fontWeight: phoneLabel.includes("Invalid") ? "bold" : "normal"
                                 }}
 
 
@@ -122,7 +122,7 @@ const telHandler = (e) => {
                        <input
                             type="submit"
                             value="Make Your reservation"
-                            // disabled={ !flag  || !props.tel || !props.email}
+                            aria-label="On Click"
                             disabled={
                                 isNaN(props.tel) ||
                                 props.tel.length !== 10 ||

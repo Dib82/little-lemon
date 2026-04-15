@@ -1,9 +1,11 @@
 
 function ConfirmedBooking(){
     return (
-        <>
-            <h1>The Booking Has Been Confirmed</h1>
-        </>
+        <section>
+            <div className="flexH confirmed primary-green">
+                <h2>The Booking Has Been Confirmed</h2>
+            </div>
+        </section>
     );
 }
 

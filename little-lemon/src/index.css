@@ -23,6 +23,30 @@ a{
 text-decoration: none;
 }
 
+.cardFormating{
+    margin: 10px;
+    padding: 10px;
+}
+
+.imageFormating{
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 100px;
+    border: solid  2px #495E57;
+    overflow: hidden;
+    border-style: solid ;
+}
+
+.profilePicture{
+width: 50px;
+}
+
+blockquote{
+    margin: 0;
+}
+
 a:hover{
     color: #FBDABB;
     text-shadow: 2px 2px #333333;
@@ -46,6 +70,14 @@ text-decoration: none;
     border-radius: 16px;
 }
 
+.confirmed{
+background-color:#FBDABB;
+margin-top: 20px;
+margin-bottom: 0px;
+padding: 20px;
+width: 100%;
+
+}
 .specials{
     display: flex;
     flex-direction: column;
@@ -79,7 +111,6 @@ text-decoration: none;
 .card {
 
     margin-top: 20px;
-    margin-bottom: 20px;
     width: 300px;
     height: 500px;
     background-color: rgb(223, 223, 223);
