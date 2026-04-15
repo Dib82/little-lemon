@@ -76,8 +76,36 @@ margin-top: 20px;
 margin-bottom: 0px;
 padding: 20px;
 width: 100%;
-
 }
+
+
+button.form-close-icon {
+    all: unset; 
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 2rem;
+    line-height: 1;
+    color: #495E57; 
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: block;
+    width: auto;  
+    height: auto; 
+}
+
+button.form-close-icon:hover {
+    color: #F4CE14; 
+    transform: scale(1.2);
+    background-color: transparent; 
+    box-shadow: none ; 
+}
+
+.bookingpage form {
+    position: relative;
+    padding-top: 30px; 
+}
+
 .specials{
     display: flex;
     flex-direction: column;

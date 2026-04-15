@@ -37,13 +37,12 @@ function App() {
   const [selectedTime, setSelectedTime] = useState("");
 
   const [email, setEmail] = useState("")
-  const [tel, setTel] = useState("")
-  // const [phoneLabel, setPhoneLabel] = useState("Phone Number");
+  const [tel, setTel] = useState("");
 
     const resetForm = () => {
       setDate(getToday())
       setGuests(1)
-      setOccasion([0])
+      setOccasion("No Occasion")
       setEmail("")
       setTel("")
       setComment("")
@@ -60,6 +59,12 @@ const submitForm = (formData) => {
       resetForm()
     }
 }
+
+// When using close button 
+const handleClose = () => {
+  resetForm();     
+  navigate("/");    
+};
 
   return (
     <>
@@ -80,7 +85,7 @@ const submitForm = (formData) => {
               submitForm={submitForm}
               email={email} setEmail={setEmail}
               tel={tel} setTel={setTel}
-              // phoneLabel={phoneLabel} setPhoneLabel={setPhoneLabel}
+              onClose={handleClose}
             />
           }
         />
